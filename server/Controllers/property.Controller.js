@@ -149,15 +149,48 @@ exports.deletePropertyById = async (req, res) => {
 exports.addVirtualTour = async (req, res) => {
   try {
     // Extract name and hotspots
-    const { name, hotspots } = req.body;
+    const {
+      name,
+      propertyType,
+      area,
+      bedrooms,
+      bathrooms,
+      price,
+      city,
+      streetAddress,
+      hotspots,
+    } = req.body;
 
-    if (!req.files || req.files.length === 0) {
-      return res.status(400).json({ message: "No images uploaded" });
+    const locationString = req.body.location;
+    const locationData = JSON.parse(locationString);
+    console.log("locationData.lat", locationData.lat);
+    const { images, thumbnail } = req.files;
+    if (!images || images.length === 0) {
+      return res.status(400).json({ message: "No product images uploaded" });
     }
-
+    if (!thumbnail || thumbnail.length === 0) {
+      return res.status(400).json({ message: "No thumbnail uploaded" });
+    }
+    // Upload the thumbnail to Cloudinary
+    const thumbnailUpload = await new Promise((resolve, reject) => {
+      const uploadStream = cloudinary.uploader.upload_stream(
+        { folder: "thumbnails" },
+        (error, result) => {
+          if (error) return reject(error);
+          resolve({
+            name: thumbnail[0].originalname,
+            url: result.secure_url,
+            size: thumbnail[0].size,
+            type: thumbnail[0].mimetype,
+          });
+        }
+      );
+      uploadStream.end(thumbnail[0].buffer);
+    });
+    console.log("thumbnailUpload", thumbnailUpload);
     // Upload files to Cloudinary
     const imageUploads = await Promise.all(
-      req.files.map((file) => {
+      images.map((file) => {
         return new Promise((resolve, reject) => {
           const uploadStream = cloudinary.uploader.upload_stream(
             { folder: "virtual_tour" },
@@ -195,6 +228,18 @@ exports.addVirtualTour = async (req, res) => {
     // Form data to save
     const formData = {
       name,
+      propertyType,
+      area,
+      bedrooms,
+      bathrooms,
+      price,
+      city,
+      streetAddress,
+      location: {
+        lat: locationData.lat,
+        lng: locationData.lng,
+      },
+      thumbnail: thumbnailUpload,
       images: imageUploads,
       hotspots: mappedHotspots,
     };

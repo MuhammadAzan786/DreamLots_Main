@@ -22,6 +22,22 @@ const fileSchema = new mongoose.Schema({
 
 const formDataSchema = new mongoose.Schema({
   name: { type: String, required: true },
+  propertyType: { type: String },
+  area: { type: Number },
+  bedrooms: { type: Number },
+  bathrooms: { type: Number },
+  price: { type: Number },
+  city: { type: String },
+  streetAddress: { type: String },
+  location: {
+    lat: {
+      type: Number,
+    },
+    lng: {
+      type: Number,
+    },
+  },
+  thumbnail: { type: fileSchema },
   images: [fileSchema],
   hotspots: [
     {

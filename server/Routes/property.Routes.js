@@ -27,7 +27,7 @@ router.delete("/deleteProperty/:id", propertyController.deletePropertyById);
 
 router.post(
   "/createVirtualTour",
-  multerUploader.array("images", 10),
+  multerUploader,
   propertyController.addVirtualTour
 );
 
