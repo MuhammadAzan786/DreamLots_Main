@@ -498,8 +498,8 @@ const SellerAddProperty = () => {
                     </Grid>
 
                     <Grid item xs={12}>
-                      <Box sx={{ p: 2, mx: "auto" }}>
-                        <Grid container spacing={2} alignItems="stretch">
+                      <Box sx={{  }}>
+                        <Grid container>
                           {/* Left Side: Upload Section */}
                           <Grid
                             item
@@ -511,7 +511,8 @@ const SellerAddProperty = () => {
                               justifyContent: "center",
                               alignItems: "center",
                               border: "2px dashed #ccc",
-                              borderRadius: 2,
+                              borderRight:"none",
+                              borderRadius: 1,
                               p: 3,
                               textAlign: "center",
                               height: 250,
@@ -577,7 +578,8 @@ const SellerAddProperty = () => {
                               alignItems: "center",
                               justifyContent: "center",
                               border: "2px solid #ccc",
-                              borderRadius: 2,
+                              borderRadius: 1,
+                              borderLeft:"none",
                               height: 250, // Fixed height
                               backgroundColor: preview
                                 ? "transparent"
@@ -609,7 +611,22 @@ const SellerAddProperty = () => {
                     </Grid>
 
                     <Grid item xs={12}>
-                      <Button variant="contained" component="label">
+                      <Button
+                        component="label"
+                        fullWidth
+                        sx={{
+                          backgroundColor: "#f5f5f5",
+                          py: 4,
+
+                          color: "#494949",
+                          fontFamily: "Segoe UI",
+                          fontSize: "15px",
+                          textTransform: "uppercase",
+                          cursor: "pointer",
+                          border: "2px dashed #c4c4c4",
+                        }}
+                        endIcon={<UploadIcon />}
+                      >
                         Upload Images
                         <input
                           type="file"
@@ -723,7 +740,6 @@ const SellerAddProperty = () => {
                         value={currentHotspot.pitch}
                         onChange={handleHotspotChange}
                         InputProps={{ readOnly: true }}
-                        required
                       />
                     </Grid>
                     <Grid item xs={6}>
@@ -735,7 +751,6 @@ const SellerAddProperty = () => {
                         value={currentHotspot.yaw}
                         onChange={handleHotspotChange}
                         InputProps={{ readOnly: true }}
-                        required
                       />
                     </Grid>
                     <Grid item xs={12}>
@@ -746,7 +761,6 @@ const SellerAddProperty = () => {
                         variant="outlined"
                         value={currentHotspot.roomId}
                         onChange={handleHotspotChange}
-                        required
                       />
                     </Grid>
                     <Grid item xs={12}>
@@ -757,7 +771,6 @@ const SellerAddProperty = () => {
                         variant="outlined"
                         value={currentHotspot.description}
                         onChange={handleHotspotChange}
-                        required
                       />
                     </Grid>
                     <Grid item xs={12}>
