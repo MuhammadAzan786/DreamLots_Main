@@ -159,7 +159,7 @@ function BuyPropertyContent() {
                   color="primary"
                   sx={{ mt: 2 }}
                   component={Link}
-                  to={`/view-detail/${property._id}`}
+                  to={`/view-detail`}
                 >
                   View Details
                 </Button>

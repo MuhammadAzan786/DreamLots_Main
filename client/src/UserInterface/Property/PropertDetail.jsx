@@ -8,7 +8,7 @@ function PropertyDetail(){
   return(
     <>
     <Header/>
-    <PropertViewDetail/>
+    <PropertViewDetail/> 
     <HomeFooter/>
     </>
   );
