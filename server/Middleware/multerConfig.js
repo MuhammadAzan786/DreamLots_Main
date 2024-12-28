@@ -6,7 +6,7 @@ const storage = multer.memoryStorage();
 const upload = multer({
   storage, // Use memory storage
   limits: {
-    fileSize: 5 * 1024 * 1024, // Limit files to 5 MB each
+    fileSize: 50 * 1024 * 1024, // Limit files to 50 MB each
   },
   fileFilter: (req, file, cb) => {
     // Validate file type
@@ -21,7 +21,7 @@ const upload = multer({
     }
   },
 }).fields([
-  { name: "images", maxCount: 15 }, 
+  { name: "images", maxCount: 15 },
   { name: "thumbnail", maxCount: 1 }, // Handle a single thumbnail image
 ]);
 
