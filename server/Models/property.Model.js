@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const propertySchema = new mongoose.Schema({
   propertyName: { type: String, required: true },
   propertyType: { type: String, required: true },
-  propertyLocation: { type: String, required: true },
+  propertyLocation: { type: String, required: true }, 
   city: { type: String, required: true },
   street: { type: String, required: true },
   address: { type: String, required: true },
