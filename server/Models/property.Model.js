@@ -10,7 +10,7 @@ const propertySchema = new mongoose.Schema({
   address: { type: String, required: true },
   price: { type: Number, required: true },
   areaSize: { type: String, required: true },
-  bedrooms: { type: Number, required: true },
+  bedrooms: { type: Number, required: true }, 
   bathrooms: { type: Number, required: true },
   kitchens: { type: Number, required: true }, // New field for the number of kitchens
   floors: { type: Number, required: true },
