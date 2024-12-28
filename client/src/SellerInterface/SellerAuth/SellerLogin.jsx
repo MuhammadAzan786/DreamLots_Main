@@ -50,7 +50,7 @@ function SellerLogin() {
 
       if (response.status === 200) {
         setSuccess("User signed in successfully!");
-        setTimeout(() => navigate("/seller"), 2000); // Redirect to seller dashboard
+        setTimeout(() => navigate("/seller"), 1500);
       }
     } catch (err) {
       if (err.response?.status === 404) {

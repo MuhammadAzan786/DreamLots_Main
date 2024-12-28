@@ -9,7 +9,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
 import cardImage from "../../assets/prop4.jpg"
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const SectionContainer = styled("div")({
   paddingTop: "4rem",
@@ -76,7 +76,7 @@ const HeadingContainer = styled(Grid)({
   alignItems: "center",
   justifyContent: "space-between",
 });
-
+// const navigate = useNavigate();
 const HomeProperty = () => {
   const settings = {
     dots: true,
@@ -170,6 +170,9 @@ const HomeProperty = () => {
                     color="primary"
                     href="property-single.html"
                     className="py-2 px-3"
+                    // onClick={()=>navigate("/view-detail")} 
+                    component={Link}
+              to="/view-detail"
                   >
                     See details
                   </Button>
