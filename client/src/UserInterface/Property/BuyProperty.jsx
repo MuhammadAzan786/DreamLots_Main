@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "../header/Header";
 import BuyPropertyContent from "./BuyPropertyContent";
+import HomeProperty from "../Homepage/HomeProperty"
 import HomeFooter from "../Homepage/HomeFooter";
 
 function BuyProperty() {
@@ -8,6 +9,7 @@ function BuyProperty() {
     <>
       <Header />
       <BuyPropertyContent/>
+      <HomeProperty/>
       <HomeFooter />
     </>
   );

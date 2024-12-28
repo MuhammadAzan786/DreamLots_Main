@@ -1,15 +1,17 @@
 import React from "react";
 import Header from "../header/Header";
 import HomeFooter from "../Homepage/HomeFooter";
+import PropertViewDetail from "./PropertyViewDetail";
 
 
-function PropertyDetail() {
-  return (
+function PropertyDetail(){
+  return(
     <>
-      <Header />
-      <h1>this is rental proprty</h1>
-      <HomeFooter />
+    <Header/>
+    <PropertViewDetail/>
+    <HomeFooter/>
     </>
   );
 }
+
 export default PropertyDetail;

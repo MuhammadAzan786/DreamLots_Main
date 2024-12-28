@@ -49,3 +49,4 @@ const formDataSchema = new mongoose.Schema({
 
 const VirtualTourData = mongoose.model("VirtualTourData", formDataSchema);
 module.exports = VirtualTourData;
+ 

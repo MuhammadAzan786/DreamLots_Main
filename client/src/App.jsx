@@ -10,6 +10,10 @@ import BuyProperty from "./UserInterface/Property/BuyProperty";
 import Services from "./UserInterface/Service/Services";
 import ContactUs from "./UserInterface/ContactUs/ContactUs";
 import AddProperty from "./UserInterface/AddProperty/AddProperty";
+
+
+import PropertyDetail from './UserInterface/Property/PropertDetail'
+import PropertyViewDetail from "./UserInterface/Property/PropertyViewDetail";
 // Seller Page Imports
 import SellerHomePage from "./SellerInterface/SellerHomePage/SellerHomepage";
 import SellerProperty from "./SellerInterface/SellerProperty/SellerProperty";
@@ -44,6 +48,9 @@ function App() {
           <Route path="/Services" element={<Services />} />
           <Route path="/Contact" element={<ContactUs />} />
           <Route path="/AddProperty" element={<AddProperty />} />
+
+          <Route path="/view-detail" element={<PropertyDetail />} />
+          <Route path="/view-detail-content" element={<PropertyViewDetail />} />
 
           {/* Buyer Interface */}
           <Route path="/seller" element={<SellerHomePage />} />
